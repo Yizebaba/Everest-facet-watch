@@ -1,6 +1,5 @@
-FROM facet-watch:latest
+FROM python:3.12-alpine
 
-USER root
 WORKDIR /app
 RUN pip install --no-cache-dir earthengine-api google-auth numpy pandas
 COPY monitor.py ./

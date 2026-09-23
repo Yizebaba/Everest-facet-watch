@@ -53,6 +53,8 @@ Copy-Item .env.example .env
 docker compose up -d --build
 ```
 
+默认监控镜像为 `ghcr.io/yizebaba/everest-facet-watch:latest`。首次使用可直接拉取公开镜像；需要修改本地脚本时，`--build` 会从本仓库的独立 `python:3.12-alpine` Dockerfile 重新构建，不依赖任何其他项目镜像。
+
 访问地址：
 
 - `http://localhost:8001/`
@@ -126,6 +128,8 @@ Copy-Item .env.example .env
 docker compose up -d --build
 ```
 
+The default monitor image is `ghcr.io/yizebaba/everest-facet-watch:latest`. It is a standalone `python:3.12-alpine` image containing only this project's runtime dependencies. `--build` rebuilds it locally from this repository when you modify the source.
+
 Local URLs:
 
 - `http://localhost:8001/`
@@ -186,6 +190,8 @@ Everest Facet Watch Sentinel-1 SAR समय-श्रृंखला प्र�
 Copy-Item .env.example .env
 docker compose up -d --build
 ```
+
+पूर्वनिर्धारित monitor image `ghcr.io/yizebaba/everest-facet-watch:latest` हो। यो परियोजनाका आवश्यक निर्भरता मात्र भएको स्वतन्त्र `python:3.12-alpine` image हो।
 
 `.env` मा आफ्नो लेख्न मिल्ने Earth Engine Asset फोल्डर राख्नुहोस्। स्थानीय प्रमाणपत्र `secrets/` मा मात्र राख्नुहोस् र Git मा कहिल्यै नपठाउनुहोस्।
 

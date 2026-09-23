@@ -12,7 +12,7 @@ services:
 
   monitor:
     build: ./monitor
-    image: facet-watch-monitor:local
+    image: ghcr.io/yizebaba/everest-facet-watch:latest
     container_name: facet-watch-realtime-monitor
     environment:
       FACET_WATCH_CONFIG: /app/config/monitor.json
