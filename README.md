@@ -53,7 +53,7 @@ Copy-Item .env.example .env
 docker compose up -d --build
 ```
 
-默认监控镜像为 `ghcr.io/yizebaba/everest-facet-watch:latest`。首次使用可直接拉取公开镜像；需要修改本地脚本时，`--build` 会从本仓库的独立 `python:3.12-alpine` Dockerfile 重新构建，不依赖任何其他项目镜像。
+默认监控镜像标签为 `ghcr.io/yizebaba/everest-facet-watch:latest`。为保证可复现，请首次使用或更新代码时执行 `docker compose up -d --build`，它会从本仓库的独立 `python:3.12-alpine` Dockerfile 构建，不依赖任何其他项目镜像。发布者可在 [GitHub Container Package 设置](https://github.com/users/Yizebaba/packages/container/package/everest-facet-watch/settings)将 GHCR 包设为公开后，其他用户才可直接匿名拉取该标签。
 
 访问地址：
 
@@ -128,7 +128,7 @@ Copy-Item .env.example .env
 docker compose up -d --build
 ```
 
-The default monitor image is `ghcr.io/yizebaba/everest-facet-watch:latest`. It is a standalone `python:3.12-alpine` image containing only this project's runtime dependencies. `--build` rebuilds it locally from this repository when you modify the source.
+The default monitor image tag is `ghcr.io/yizebaba/everest-facet-watch:latest`. For reproducible setup, run `docker compose up -d --build`: it builds a standalone `python:3.12-alpine` image from this repository and does not depend on another project image. The publisher may make the GHCR package public in its [GitHub Container Package settings](https://github.com/users/Yizebaba/packages/container/package/everest-facet-watch/settings); only then can other users pull the tag anonymously.
 
 Local URLs:
 
@@ -191,7 +191,7 @@ Copy-Item .env.example .env
 docker compose up -d --build
 ```
 
-पूर्वनिर्धारित monitor image `ghcr.io/yizebaba/everest-facet-watch:latest` हो। यो परियोजनाका आवश्यक निर्भरता मात्र भएको स्वतन्त्र `python:3.12-alpine` image हो।
+पूर्वनिर्धारित monitor image tag `ghcr.io/yizebaba/everest-facet-watch:latest` हो। `docker compose up -d --build` चलाउँदा यो repository बाट स्वतन्त्र `python:3.12-alpine` image बनाइन्छ र अर्को परियोजनाको image चाहिँदैन। अन्य प्रयोगकर्ताले image सिधै pull गर्न GitHub Container Package लाई सार्वजनिक बनाउनु आवश्यक हुन्छ।
 
 `.env` मा आफ्नो लेख्न मिल्ने Earth Engine Asset फोल्डर राख्नुहोस्। स्थानीय प्रमाणपत्र `secrets/` मा मात्र राख्नुहोस् र Git मा कहिल्यै नपठाउनुहोस्।
 
