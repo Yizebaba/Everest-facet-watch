@@ -1,0 +1,14 @@
+{
+  "enabled": true,
+  "poll_seconds": 3600,
+  "provider": "google-earth-engine",
+  "collection": "COPERNICUS/S1_GRD",
+  "regions": ["langtang"],
+  "langtang_history_start": "2020-01-01",
+  "langtang_history_end": "2026-09-22",
+  "facet_batch_size": 60,
+  "scene_lookback_days": 60,
+  "himalaya_batch_enabled": true,
+  "himalaya_batch_poll_seconds": 900,
+  "note": "Automatically checks for new descending Sentinel-1 VV scenes for Langtang, then updates the local research snapshot. It does not notify or issue warnings."
+}

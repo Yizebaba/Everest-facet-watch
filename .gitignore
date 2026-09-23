@@ -1,0 +1,10 @@
+data/*.json
+data/*.sqlite3
+data/*.sqlite3-*
+data/*.log
+data/monitor-status.json
+data/references/
+data/samples/
+secrets/*
+!secrets/.gitkeep
+.env
