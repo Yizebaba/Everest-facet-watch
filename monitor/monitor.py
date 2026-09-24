@@ -217,7 +217,12 @@ def main() -> None:
     last_langtang_check = 0.0
     while True:
         config = json.loads(CONFIG.read_text(encoding="utf-8"))
-        status = {"checked_at": utc_now(), "provider": config["provider"], "collection": config["collection"], "regions": config["regions"], "notifications": "disabled"}
+        status_path = DATA / "monitor-status.json"
+        if status_path.exists():
+            status = json.loads(status_path.read_text(encoding="utf-8"))
+        else:
+            status = {}
+        status.update({"provider": config["provider"], "collection": config["collection"], "regions": config["regions"], "notifications": "disabled", "loop_checked_at": utc_now()})
         try:
             if not config["enabled"]:
                 status.update({"status": "disabled", "message": "Automatic Sentinel-1 polling is disabled."})
@@ -232,7 +237,7 @@ def main() -> None:
                     status.update({"status": "up_to_date", "message": "No new descending Sentinel-1 VV scenes were available."})
         except Exception as error:
             status.update({"status": "error", "message": str(error)})
-        write_json(DATA / "monitor-status.json", status)
+        write_json(status_path, status)
         if config.get("himalaya_batch_enabled"):
             try:
                 himalaya_status = refresh_himalaya_batch_status()
